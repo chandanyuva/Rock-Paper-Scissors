@@ -32,7 +32,7 @@ function playRound(player, computer) {
 let game = () => {
   let pwin = 0,
     cwin = 0;
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 1; i++) {
     const playerSelection = getPlayerChoice();
     const computerSelection = getComputerChoice();
 
@@ -49,4 +49,8 @@ let game = () => {
   else if (cwin > pwin) console.log("computer wins");
 };
 
-game();
+// game();
+
+
+// logic with ui below
+
