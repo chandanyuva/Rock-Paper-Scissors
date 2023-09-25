@@ -29,11 +29,50 @@ function playRound(player, computer) {
   }
 }
 
-let game = () => {
+// main round logiv below
+// let game = () => {
+//   let pwin = 0,
+//     cwin = 0;
+//   for (let i = 0; i < 1; i++) {
+//     const playerSelection = getPlayerChoice();
+//     const computerSelection = getComputerChoice();
+
+//     let whoWon = playRound(playerSelection, computerSelection);
+
+//     if (whoWon === "player") {
+//       pwin += 1;
+//     } else if (whoWon === "computer") {
+//       cwin += 1;
+//     }
+//   }
+//   if (pwin === cwin) console.log("tie");
+//   else if (pwin > cwin) console.log("player wins");
+//   else if (cwin > pwin) console.log("computer wins");
+// };
+
+// game();
+
+
+// logic with ui below
+
+
+// logic for single round
+function btnChoice(btnID){
+  switch (btnID){
+    case 'btn-rock':
+      return 0;
+    case 'btn-paper':
+      return 1;
+    case 'btn-scissors':
+      return 2;
+  }
+}
+
+let game = (pc) => {
   let pwin = 0,
     cwin = 0;
   for (let i = 0; i < 1; i++) {
-    const playerSelection = getPlayerChoice();
+    const playerSelection = pc;
     const computerSelection = getComputerChoice();
 
     let whoWon = playRound(playerSelection, computerSelection);
@@ -49,8 +88,5 @@ let game = () => {
   else if (cwin > pwin) console.log("computer wins");
 };
 
-// game();
-
-
-// logic with ui below
-
+const btnRock = document.getElementById('btn-rock');
+btnRock.addEventListener('click',(e)=>{game(btnChoice(e.target.id))});
