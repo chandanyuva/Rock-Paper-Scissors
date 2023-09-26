@@ -27,6 +27,7 @@ btnRock.addEventListener("click", (event) => {
 });
 const btnPaper = document.getElementById("btn-paper");
 btnPaper.addEventListener("click", (event) => {
+    
     playmatch(event);
 });
 const btnscissors = document.getElementById("btn-scissors");
@@ -35,34 +36,37 @@ btnscissors.addEventListener("click", (event) => {
 });
 
 // one round play
-const rrs=document.getElementById('round-result')
+const rrs=document.getElementById('round-result-content')
 function playRound(player, computer) {
     // console.log(`${player} ${computer}`);
     if (player === computer) {
-        rrs.textContent += `tie`;
+        rrs.textContent = `tie`;
         return "tie";
     } else if (
         (player === choices[0] && computer === choices[2]) ||
         (player === choices[1] && computer === choices[0]) ||
         (player === choices[2] && computer === choices[1])
     ) {
-        rrs.textContent += `player`;
+        rrs.textContent = `player`;
         return "player";
     } else {
-        rrs.textContent += `computer`;
+        rrs.textContent = `computer`;
         return "computer";
     }
 }
 
-document.body.appendChild(resultDiv);
 
-// to play a round match
+
+// to play a 5 round match
 function playmatch(event) {
 
     let whoWon = playRound(
         getPlayerChoice(btnChoice(event.target.id)),
         getComputerChoice()
     );
+    const mrs=document.getElementById('match-result-content');
+    mrs.textContent=' In-progress'
+    const playerScore=document.getElementById("player-result-content")
     if (whoWon === "player") {
         console.log('player');
         pwin += 1;
@@ -74,19 +78,24 @@ function playmatch(event) {
     } else if (whoWon==="tie"){
         console.log('round tie');
     }
+    
+    playerScore.textContent=`Player= ${pwin}, Computer= ${cwin}`
     if (pwin ===5 && cwin===5) {
-        const mrs=document.getElementById('match-result')
-        mrs.textContent+='Tie'
+        mrs.textContent=' Match Tie'
+        pwin=0,cwin=0;
         console.log("match tie");
+        playerScore.textContent=` Player= ${pwin}, Computer= ${cwin}`
     }
     else if (pwin ===5) {
-        mrs.textContent+='Player Wins'
+        mrs.textContent=' Player Wins'
         console.log("player wins");
         pwin=0,cwin=0;
+        playerScore.textContent=`Player= ${pwin}, Computer= ${cwin}`
     }
     else if (cwin === 5) {
-        mrs.textContent='Computer Wins'
+        mrs.textContent=' Computer Wins'
         console.log("computer wins");
         pwin=0,cwin=0;
+        playerScore.textContent=`Player= ${pwin}, Computer= ${cwin}`
     }
 }
