@@ -1,0 +1,52 @@
+*{
+    border: 1px solid rgba(255, 0, 0, 0.362);
+}
+
+body{
+    padding: 0;
+    margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: whitesmoke;
+    background-color: black;
+    text-align: center;
+}
+
+
+div#result-container{
+    display: flex;
+    flex-direction: column;
+    
+}
+div#result-container span{
+    min-height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#match-result{
+    font-size: 38px;
+    font-weight: 900;
+}
+#round-result{
+    font-size: 32px;
+    font-weight: 600;
+}
+#player-score{
+    font-size: 26px;
+    font-weight: 400;
+}
+
+#btn-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 15vh;
+    gap: 8vw;
+}
+#btn-container button{
+    min-width: 80px;
+    min-height: 40px;
+    border-radius: 4px;
+    background-color: rgba(255, 77, 0, 0.955);
+    color:whitesmoke ;
+}
